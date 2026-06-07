@@ -29,7 +29,7 @@ namespace {
         }
         return result;
     }
-}
+} // namespace
 
 std::vector<std::vector<char>> getAllPerms(PMTree& tree) {
     std::vector<std::vector<char>> perms;
