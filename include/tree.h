@@ -6,7 +6,7 @@
 #include <cstddef>
 
 class PMTree {
-public:
+ public:
     struct Node {
         char ch;
         std::vector<Node*> children;
