@@ -7,28 +7,28 @@
 #include "tree.h"
 
 namespace {
-    void walk(PMTree::Node* now,
+void walk(PMTree::Node* now,
         std::vector<char>* way,
         std::vector<std::vector<char>>* ans) {
-        if (now->children.empty()) {
-            if (!way->empty()) {
-                ans->push_back(*way);
-            }
-            return;
+    if (now->children.empty()) {
+        if (!way->empty()) {
+            ans->push_back(*way);
         }
-        for (size_t i = 0; i < now->children.size(); i++) {
-            way->push_back(now->children[i]->ch);
-            walk(now->children[i], way, ans);
-            way->pop_back();
-        }
+        return;
     }
-    int fact(int n) {
-        int result = 1;
-        for (int i = 2; i <= n; i++) {
-            result *= i;
-        }
-        return result;
+    for (size_t i = 0; i < now->children.size(); i++) {
+        way->push_back(now->children[i]->ch);
+        walk(now->children[i], way, ans);
+        way->pop_back();
     }
+}
+int fact(int n) {
+    int result = 1;
+    for (int i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
 } // namespace
 
 std::vector<std::vector<char>> getAllPerms(PMTree& tree) {
